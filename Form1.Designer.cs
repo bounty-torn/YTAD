@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             label1 = new Label();
             txt_URL = new TextBox();
             button1 = new Button();
@@ -50,15 +50,14 @@
             button2 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             timer_tag = new System.Windows.Forms.Timer(components);
-            timer_save = new System.Windows.Forms.Timer(components);
             timer_convert = new System.Windows.Forms.Timer(components);
             btn_Pause = new Button();
             btn_Resume = new Button();
             contextMenuStrip1 = new ContextMenuStrip(components);
             menu_cleardata = new ToolStripMenuItem();
             openDataFileToolStripMenuItem = new ToolStripMenuItem();
+            saveTableToolStripMenuItem = new ToolStripMenuItem();
             RestartBadItems = new ToolStripMenuItem();
-          
             lbl_status = new Label();
             timer_count = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dgv_downloads).BeginInit();
@@ -98,24 +97,24 @@
             // 
             dgv_downloads.BackgroundColor = Color.Azure;
             dgv_downloads.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Azure;
-            dataGridViewCellStyle1.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgv_downloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.Azure;
+            dataGridViewCellStyle7.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgv_downloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgv_downloads.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_downloads.Columns.AddRange(new DataGridViewColumn[] { Artist, Album, SongNum, Song, Duration, Link, DL, Tagged, Converted });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Azure;
-            dataGridViewCellStyle3.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgv_downloads.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.Azure;
+            dataGridViewCellStyle9.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
+            dgv_downloads.DefaultCellStyle = dataGridViewCellStyle9;
             dgv_downloads.Location = new Point(12, 69);
             dgv_downloads.Margin = new Padding(3, 2, 3, 2);
             dgv_downloads.Name = "dgv_downloads";
@@ -127,9 +126,9 @@
             // 
             // Artist
             // 
-            dataGridViewCellStyle2.BackColor = Color.Azure;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            Artist.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = Color.Azure;
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            Artist.DefaultCellStyle = dataGridViewCellStyle8;
             Artist.HeaderText = "Artist";
             Artist.Name = "Artist";
             Artist.Width = 150;
@@ -199,7 +198,7 @@
             txt_Dir.Name = "txt_Dir";
             txt_Dir.Size = new Size(583, 23);
             txt_Dir.TabIndex = 5;
-            txt_Dir.Text = "C:\\Downloads";
+            txt_Dir.Text = "C:\\Users\\satsu\\Downloads";
             // 
             // button2
             // 
@@ -221,11 +220,6 @@
             // 
             timer_tag.Interval = 10000;
             timer_tag.Tick += timer_tag_Tick;
-            // 
-            // timer_save
-            // 
-            timer_save.Interval = 30000;
-            timer_save.Tick += timer_save_Tick;
             // 
             // timer_convert
             // 
@@ -255,9 +249,8 @@
             // 
             // contextMenuStrip1
             // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { menu_cleardata, openDataFileToolStripMenuItem, RestartBadItems });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { menu_cleardata, openDataFileToolStripMenuItem, saveTableToolStripMenuItem, RestartBadItems });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(213, 70);
             contextMenuStrip1.Size = new Size(213, 92);
             // 
             // menu_cleardata
@@ -273,6 +266,13 @@
             openDataFileToolStripMenuItem.Size = new Size(212, 22);
             openDataFileToolStripMenuItem.Text = "Open Data Folder";
             openDataFileToolStripMenuItem.Click += openDataFileToolStripMenuItem_Click;
+            // 
+            // saveTableToolStripMenuItem
+            // 
+            saveTableToolStripMenuItem.Name = "saveTableToolStripMenuItem";
+            saveTableToolStripMenuItem.Size = new Size(212, 22);
+            saveTableToolStripMenuItem.Text = "Save Table";
+            saveTableToolStripMenuItem.Click += saveTableToolStripMenuItem_Click;
             // 
             // RestartBadItems
             // 
@@ -318,7 +318,7 @@
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "Form1";
-            Text = "YouTube Album Downloader v1.7";
+            Text = "YouTube Album Downloader v1.8";
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_downloads).EndInit();
@@ -338,7 +338,6 @@
         private Button button2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer_tag;
-        private System.Windows.Forms.Timer timer_save;
         private System.Windows.Forms.Timer timer_convert;
         private DataGridViewTextBoxColumn Artist;
         private DataGridViewTextBoxColumn Album;
@@ -357,5 +356,6 @@
         private ToolStripMenuItem RestartBadItems;
         private Label lbl_status;
         private System.Windows.Forms.Timer timer_count;
+        private ToolStripMenuItem saveTableToolStripMenuItem;
     }
 }
